@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}', '.' ]
+  args: [ 'build', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/mcardsv1', '.' ]
 # steps:
 # # - name: node:$_NODE_VERSION
 # #   entrypoint: npm
@@ -37,4 +37,4 @@ steps:
 #   - 'us-west1-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:$SHORT_SHA'
 options:
   logging: CLOUD_LOGGING_ONLY
-images: '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}'
+images: '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/mcardsv1'
