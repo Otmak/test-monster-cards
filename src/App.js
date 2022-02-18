@@ -35,12 +35,8 @@ export default class App extends Component {
 
     return (
       <div className="App">
-        <SearchBox 
-            placeholder="Search Monster" 
-            handleChange={ (e) => { this.setState({ searchFeild: e.target.value })} }
-        />
             <CardList 
-                monsters={ filteredMonsters }
+                monsters={ monsters }
             />
       </div>
     )
