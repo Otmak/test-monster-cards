@@ -1,25 +1,26 @@
+
+   
 # stage 1
 
-FROM node:alpine AS builder
+FROM node:16.13.0 AS buildfrontend
 
-WORKDIR /mv1
+WORKDIR /mc11app
 
 ENV PATH /app/node_modules/.bin:$PATH
 
-COPY package*.json .
-COPY package-lock.json .
+COPY package*.json ./
 
-RUN npm install --production
+RUN npm install 
 
 # add app
-COPY . .
+COPY . ./
 RUN npm run build
 
 # start app
 # Stage 2 - the production environment
 FROM nginx:alpine
 
-COPY --from=builder /mv1/build /usr/share/nginx/html
+COPY --from=buildfrontend /mc11app/build /usr/share/nginx/html
 
 RUN rm /etc/nginx/conf.d/default.conf
 
