@@ -1,39 +1,9 @@
+
+
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', '$LOCATION-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/m-cardsv1', '.' ]
-# steps:
-# # - name: node:$_NODE_VERSION
-# #   entrypoint: npm
-# #   args: ['install']
-# # - name: node:$_NODE_VERSION
-# #   entrypoint: npm
-# #   args: ['build']
+  args: [ 'build', '-t', 'us-west1-docker.pkg.dev/g-testv1/m-cards-repo/m-cardsv1', '.' ]
 
-# # steps:
-# # # This step runs the unit tests on the app
-# # - name: 'python:3.7-slim'
-# #   id: Test
-# #   entrypoint: /bin/sh
-# #   args:
-# #   - -c
-# #   - 'pip install flask && python test_app.py -v'
-
-# # This step builds the container image.
-# - name: 'gcr.io/cloud-builders/docker'
-#   id: Build
-#   args:
-#   - 'build'
-#   - '-t'
-#   - '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}'
-#   - '.'
-images: ['$LOCATION-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/m-cardsv1']
-# This step pushes the image to Artifact Registry
-# The PROJECT_ID and SHORT_SHA variables are automatically
-# replaced by Cloud Build.
-# - name: 'gcr.io/cloud-builders/docker'
-#   id: Push
-#   args:
-#   - 'push'
-#   - 'us-west1-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:$SHORT_SHA',$TAG_NAME
+images: ['us-west1-docker.pkg.dev/g-testv1/m-cards-repo/m-cardsv1']
 options:
   logging: CLOUD_LOGGING_ONLY
