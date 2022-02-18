@@ -6,7 +6,8 @@ WORKDIR /mv1
 
 ENV PATH /app/node_modules/.bin:$PATH
 
-COPY package*.json ./
+COPY package*.json .
+COPY package-lock.json .
 
 RUN npm install --production
 
