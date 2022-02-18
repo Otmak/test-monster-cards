@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/mcardsv1', '.' ]
+  args: [ 'build', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/m-cards-repo/m-cardsv1', '.' ]
 # steps:
 # # - name: node:$_NODE_VERSION
 # #   entrypoint: npm
@@ -26,7 +26,7 @@ steps:
 #   - '-t'
 #   - '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}'
 #   - '.'
-images: ['${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/mcardsv1']
+images: ['${_LOCATION}-docker.pkg.dev/$PROJECT_ID/m-cards-repo/m-cardsv1']
 # This step pushes the image to Artifact Registry
 # The PROJECT_ID and SHORT_SHA variables are automatically
 # replaced by Cloud Build.
