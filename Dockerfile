@@ -1,24 +1,24 @@
 # stage 1
 
-FROM node AS build
+FROM node:alpine AS builder
 
-WORKDIR /mc11app
+WORKDIR /mv1
 
 ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package*.json ./
 
-RUN npm install 
+RUN npm install --production
 
 # add app
-COPY . ./
+COPY . .
 RUN npm run build
 
 # start app
 # Stage 2 - the production environment
 FROM nginx:alpine
 
-COPY --from=build /mc11app/build /usr/share/nginx/html
+COPY --from=builder /mv1/build /usr/share/nginx/html
 
 RUN rm /etc/nginx/conf.d/default.conf
 
