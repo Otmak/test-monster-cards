@@ -1,9 +1,18 @@
 
 
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-west1-docker.pkg.dev/g-testv1/m-cards-repo/m-cardsv1', '.' ]
 
-images: ['us-west1-docker.pkg.dev/g-testv1/m-cards-repo/m-cardsv1']
+
+
+steps:
+  # Build container image.
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'us-west1-docker.pkg.dev/$PROJECT_ID/m-cards-repo/m-cardsv1', '.' ]
+
+# Push container to Artifact.
+- name: 'gcr.io/cloud-builders/docker'
+  id: Push
+  args: [ 'push', 'us-west1-docker.pkg.dev/$PROJECT_ID/m-cards-repo/m-cardsv1' ]
+
+# images: ['us-west1-docker.pkg.dev/g-testv1/m-cards-repo/m-cardsv1']
 options:
   logging: CLOUD_LOGGING_ONLY
