@@ -13,7 +13,7 @@ steps:
   args:
   - run
   - --filename=gke/deployment.yaml
-  - --image=us-west1-docker.pkg.dev/g-testv1/m-cards-repo/m-cardsv2:latest
+  - --image=us-west1-docker.pkg.dev/$PROJECT_ID/m-cards-repo/m-cardsv2:latest
   - --location=us-west1-c
   - --cluster=nginx-1-cluster
 
@@ -22,7 +22,7 @@ steps:
   args:
   - run
   - --filename=gke/service.yaml
-  - --image=us-west1-docker.pkg.dev/g-testv1/m-cards-repo/m-cardsv2:latest
+  - --image=us-west1-docker.pkg.dev/$PROJECT_ID/m-cards-repo/m-cardsv2:latest
   - --location=us-west1-c
   - --cluster=nginx-1-cluster
 
