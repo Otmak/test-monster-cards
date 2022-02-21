@@ -2,10 +2,10 @@
 steps:
   # build the container image
 - name: "gcr.io/cloud-builders/docker"
-  args: ["build", "-t", "gcr.io/g-testv1/test-card/m-cardsv2", "."]
+  args: ["build", "-t", "us-west1-docker.pkg.dev/$PROJECT_ID/m-cards-repo/m-cardsv2", "."]
   # push container image
 - name: "gcr.io/cloud-builders/docker"
-  args: ["push", "gcr.io/g-testv1/test-card/m-cardsv2"]
+  args: ["push", "us-west1-docker.pkg.dev/$PROJECT_ID/m-cards-repo/m-cardsv2"]
 
 
   # deploy container image to GKE.
@@ -13,7 +13,7 @@ steps:
   args:
   - run
   - --filename=gke/deployment.yaml
-  - --image=gcr.io/g-testv1/test-card/m-cardsv2
+  - --image=us-west1-docker.pkg.dev/$PROJECT_ID/m-cards-repo/m-cardsv2
   - --location=us-west1-c
   - --cluster=nginx-1-cluster
 
@@ -22,7 +22,7 @@ steps:
   args:
   - run
   - --filename=gke/service.yaml
-  - --image=gcr.io/g-testv1/test-card/m-cardsv2
+  - --image=us-west1-docker.pkg.dev/$PROJECT_ID/m-cards-repo/m-cardsv2
   - --location=us-west1-c
   - --cluster=nginx-1-cluster
 
